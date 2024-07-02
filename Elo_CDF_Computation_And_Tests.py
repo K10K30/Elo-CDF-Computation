@@ -339,15 +339,15 @@ q = 0.5
 L = 1200
 
 # Range of m values for grid convergence study
-m_values = [10, 20, 60, 80, 100, 120, 140]
+m_values = [10, 20, 40, 80]
 
 errors = []
 grid_spacings = []
 
-# Grid convergence study
 for m in tqdm(m_values,  desc="Processing"):
     x_m, F_m = solve_system(m, k, p, q, L)
     x_2m, F_2m = solve_system(2*m, k, p, q, L)
+    
     
     # Direct comparison: F_m(i) vs. F_2m(2i)
     F_2m_reduced = F_2m[::2]  # Take every second element from F_2m
@@ -382,6 +382,54 @@ plt.show()
 
 # Display the order of convergence
 print(f"Order of convergence: {slope:.2f}")
+
+
+#%% Grid convergence study exact computation for order of convergence
+# Parameters
+k = 20
+p = 0.5
+q = 0.5
+L = 1200
+
+# Range of m values for grid convergence study
+m_values = [15, 20, 25, 30, 40, 50, 60, 80]
+
+grid_spacings = []
+orders_convergence = []
+
+for m in tqdm(m_values,  desc="Processing"):
+    x_m, F_m = solve_system(m, k, p, q, L)
+    x_2m, F_2m = solve_system(2*m, k, p, q, L)
+    x_4m, F_4m = solve_system(4*m, k, p, q, L)
+    
+    # F_2m[::2]   Take every second element from F_2m
+    
+    # Compute the L_inf norm (maximum absolute error)
+    E1 = np.max(np.abs(F_m - F_2m[::2]))
+    E2 = np.max(np.abs(F_2m - F_4m[::2]))
+    
+    # Estimate the order of convergence
+    order_convergence =  np.log2(E1 / E2)
+    
+    orders_convergence.append(order_convergence)
+    grid_spacings.append(2 * k / m)
+    
+#%% Plotting
+
+
+mean_order_convergence = np.mean(orders_convergence)
+
+plt.figure(figsize=(8, 6))
+plt.title(f'Order of Convergence Exact Computation p = {p}, q = {q}, L = {L}')
+plt.plot(grid_spacings, orders_convergence, 'o-', label='Order of Convergence')
+plt.axhline(mean_order_convergence, color='red', linestyle='--', label=f'Average Order of Convergence = {mean_order_convergence:.2f}')
+plt.xlabel('Grid Spacing')
+plt.ylabel('Order of Convergence')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
 
 #%% Symetry of Elo CDF
 
