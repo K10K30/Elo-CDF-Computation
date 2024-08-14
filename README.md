@@ -1,7 +1,7 @@
 ## Invariant Cumulative Function of the ELO Rating System
 
 ### Description
-This repository contains the implementation of the invariant cumulative function of the ELO rating system, developed by David Man. The project involves the numerical solution of the ELO rating system's invariant cumulative function using various mathematical and computational techniques.
+This repository contains the implementation of the invariant cumulative function of the ELO rating system. The project involves the numerical solution of the ELO rating system's invariant cumulative function using various mathematical and computational techniques.
 
 ### Features
 - **Meshing Functions**: Functions for meshing and construction of the system matrix.
