@@ -1,18 +1,18 @@
-## Invariant Cumulative Function of the ELO Rating System
+## Stationary Distribution of the ELO Rating System for two players
 
 ### Description
-This repository contains the implementation of the invariant cumulative function of the ELO rating system. The project involves the numerical solution of the ELO rating system's invariant cumulative function using various mathematical and computational techniques.
+This repository contains the implementation of the stationary distribution of the ELO rating system. The project focuses on the numerical approximation of the stationary cumulative distribution function (CDF) associated with the ELO rating system, utilizing various mathematical and computational methods.
 
 ### Features
-- **Meshing Functions**: Functions for meshing and construction of the system matrix.
-- **Newton-Raphson Method**: Implementation of the Newton-Raphson method to find the inverse of function `g`.
-- **System Solver**: Methods to construct and solve the linear system representing the ELO rating system in order to obtain the Elo CDF.
-- **Grid Convergence Study**: Analysis of grid convergence.
-- **Statistical Analysis**: Calculation of expected values, second moments, and variance.
-- **Symmetry Tests**: Tests for the symmetry of the ELO CDF.
-- **Elo Conjecture Test**: Testing Elo's assumption on match expected outcome and rating difference.
-- **ELO vs. Normal Distribution**: Comparison of ELO CDF with the normal distribution CDF.
-- **Dependency Studies**: Examination of the independence of mean and variance in relation to the constant `k`.
+- **Meshing Functions**: Tools for generating meshes and constructing the system matrix.
+- **Newton-Raphson Method**: Implementation of the Newton-Raphson method to compute the inverse of the function `g`.
+- **System Solver**: Methods to build and solve the linear system representing the ELO rating system to obtain the stationary distribution.
+- **Grid Convergence Study**: Analysis of grid convergence to assess the accuracy of numerical approximations.
+- **Statistical Analysis**: Computation of expected values, second moments, and variance.
+- **Symmetry Tests**: Procedures for testing the symmetry of the stationary distribution.
+- **Elo Conjecture Test**: Evaluation of Elo's conjecture regarding the relationship between expected match outcomes and rating differences.
+- **ELO vs. Normal Distribution**: Comparison between the stationary distribution of the ELO system and the normal distribution.
+- **Dependency Studies**: Investigation of the relationship between the mean, variance, and the adjustment factor \(K\).
 
 ### Dependencies
 - NumPy
@@ -21,7 +21,7 @@ This repository contains the implementation of the invariant cumulative function
 - tqdm
 
 ### Usage
-The main script demonstrates various analyses and visualizations related to the ELO rating system. To run the code, ensure that all dependencies are installed and execute the script in a Python environment.
+The main script provides various analyses and visualizations related to the stationary distribution of the ELO rating system. To execute the code, ensure that all dependencies are installed and run the script in a Python environment.
 
 ### Author
 David Man
